@@ -4,7 +4,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -133,8 +133,8 @@ export default function DashboardPage() {
     <Box sx={{ p: { xs: 2, sm: 4 }, minHeight: '100vh' }}>
       <Typography variant="h4" sx={{ mb: 3, color: '#0b1220', fontWeight: 700 }}>Dashboard</Typography>
 
-        <Grid container spacing={2}>
-        <Grid item xs={12} sm={4}>
+      <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+        <Box sx={{ width: { xs: '100%', sm: 'calc(33.333% - 16px)' } }}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }} elevation={2}>
             <Box>
               <Typography variant="subtitle2" sx={{ color: '#334155' }}>Chamados hoje</Typography>
@@ -144,9 +144,9 @@ export default function DashboardPage() {
               <MiniBarChart data={seriesLast7} />
             </Box>
           </Paper>
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} sm={4}>
+        <Box sx={{ width: { xs: '100%', sm: 'calc(33.333% - 16px)' } }}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }} elevation={2}>
             <Box>
               <Typography variant="subtitle2" sx={{ color: '#334155' }}>Chamados totais (últimos 7 dias)</Typography>
@@ -156,9 +156,9 @@ export default function DashboardPage() {
               <MiniBarChart data={seriesLast7} color="#2563eb" />
             </Box>
           </Paper>
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} sm={4}>
+        <Box sx={{ width: { xs: '100%', sm: 'calc(33.333% - 16px)' } }}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }} elevation={2}>
             <Box>
               <Typography variant="subtitle2" sx={{ color: '#334155' }}>Moldes com chamados (7d)</Typography>
@@ -168,8 +168,8 @@ export default function DashboardPage() {
               <MiniBarChart data={seriesUniqueMoldes7} color="#16a34a" />
             </Box>
           </Paper>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
       <Box sx={{ mt: 3 }}>
         <Paper sx={{ p: 2 }} elevation={1}>
           <Typography variant="h6" sx={{ mb: 1 }}>Chamados por máquina (hoje)</Typography>
