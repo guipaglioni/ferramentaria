@@ -52,12 +52,25 @@ export default function MoldesPage() {
   };
 
   // chamados (em memória)
-  const [chamados, setChamados] = React.useState([]);
+  type Chamado = {
+    id: number;
+    moldeId: number | string;
+    moldeNome: string;
+    videoName?: string | null;
+    videoUrl?: string | null;
+    machineNumber?: string | null;
+    insumos?: string | null;
+    datetime: string;
+    timestamp: number;
+    comment?: string | null;
+  };
+
+  const [chamados, setChamados] = React.useState<Chamado[]>([]);
 
   React.useEffect(() => {
     try {
       const raw = localStorage.getItem("chamados");
-      if (raw) setChamados(JSON.parse(raw));
+      if (raw) setChamados(JSON.parse(raw) as Chamado[]);
     } catch (e) {
       // ignore
     }
