@@ -24,3 +24,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Placeholder for permanent drawer on desktop; hidden on small screens */
+.app-main {
+  transition: margin-left 200ms ease;
+  min-height: 100vh;
+}
+
+/* On desktop keep content to the right of the permanent drawer */
+@media (min-width: 600px) {
+  .app-main {
+    margin-left: 220px;
+  }
+}
+
+@media (max-width: 599px) {
+  .app-main {
+    margin-left: 0;
+  }
+}
+
+/* On small screens add top padding to account for the AppBar height */
+@media (max-width: 599px) {
+  .app-main {
+    padding-top: 56px;
+  }
+}
