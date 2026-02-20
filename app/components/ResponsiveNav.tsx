@@ -15,10 +15,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import { usePathname } from "next/navigation";
 
 export default function ResponsiveNav() {
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const pathname = usePathname();
+  if (pathname && pathname.startsWith("/login")) return null;
+  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"), { noSsr: true });
   const [open, setOpen] = React.useState(false);
 
   const nav = (
